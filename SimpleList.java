@@ -1,9 +1,9 @@
-/**
+/*
  *Name: Sabrina Woo
  *Class ID: 422
  *Assignment 2
  *Description: Simple List class can add, remove, or search an integer in an array of integers
-**/
+*/
 import java.lang.Math.*;
 
 public class SimpleList
@@ -19,19 +19,19 @@ public SimpleList()
 	count = 0;
 }
 
-/* 
+/** 
 This method returns the list
 @return the array of integers
-*/
+**/
 public int [] getList()
 {
 	return list;
 }
 
-/* 
+/** 
 This method adds a new int to array at index 0 and moves all list elements to the right
 @param a new integer to be added
-*/
+**/
 public void add (int newInt)
 {	
 	//if list is empty then add an integer		
@@ -71,12 +71,12 @@ public void add (int newInt)
 
 }
 
-/* 
+/** 
 This method removes a specified int and moves the remaining elements down.
 If the list has more than 25% empty places it decreases the size of the list.
 The list cannot be reduced to less than 1 entry.
 @param a specific integer to remove from the list
-*/
+**/
 public void remove (int target)
 {
 	//list search variables
@@ -125,17 +125,17 @@ public void remove (int target)
 	}
 }
 	
-/* 
+/** 
 This method returns the current count of integers in the list 
-*/
+**/
 public int count ()
 {
 	return count;
 }
 	
-/* 
+/** 
 This method converts the array to a string and the elements are separated by a space
-*/
+**/
 public String toString()
 {
 	String finalString = "", tempString = "";
@@ -149,11 +149,11 @@ public String toString()
 	return finalString;
 }
 	
-/* 
+/** 
 This method return the location of the parameter in the list. If the parameter is not in the list, then it returns -1.
 @param the target integer to be found
 @return the index of the target integer
-*/
+**/
 public int search(int target)
 {
 	int found = -1;
@@ -166,11 +166,11 @@ public int search(int target)
 	
 	return found;
 }
-/* 
+/** 
 This method appends the parameter to the end of the list and increments the count 
 If the list is full, then increase the size by 50% so there will be room
 @param the integer to be appended
-*/	
+**/	
 public void append (int newInt)
 {
 	int increasedSize = (int)(Math.floor(list.length * 0.5));
@@ -196,10 +196,10 @@ public void append (int newInt)
 	
 }
 	
-/* 
+/** 
 This method returns the first element in the list.  If there are no elements in the list, then return -1.
 @return first list element
-*/	
+**/	
 public int first ()
 {
 	int first;
@@ -211,10 +211,10 @@ public int first ()
 	return first;
 }
 	
-/* 
+/** 
 This method returns the last element in the list.  If there are no elements in the list, then return -1.
 @return last list element
-*/	
+**/	
 public int last ()
 {
 	int last;
@@ -226,10 +226,10 @@ public int last ()
 	return last;
 }
 	
-/* 
+/** 
 This method returns the current number of possible locations in the list.
 @return number of current elements
-*/	
+**/	
 public int size ()
 {
 	return count;
