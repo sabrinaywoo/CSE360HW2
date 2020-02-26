@@ -4,6 +4,7 @@
  *Assignment 2
  *Description: Simple List class can add, remove, or search an integer in an array of integers
 **/
+import java.lang.Math.*;
 
 public class SimpleList {
 
@@ -41,8 +42,10 @@ public void add (int newInt)
 	//check if list is full
 	else if (count == list.length)
 	{
+		int increasedSize = (int)(Math.floor(list.length * 0.5));
+		
 		//new array increases size by 50%
-		int [] tempArray = new int [(int)(list.length * .5)];
+		int [] tempArray = new int [increasedSize];
 		
 		//copy original list elements into new array
 		for (int copy = 0; copy < list.length; copy++)
@@ -78,7 +81,7 @@ public void remove (int target)
 	//list search variables
 	int firstIndex, secondIndex;
 	//75% size of list
-	int reducedSize = (int)(list.length * 0.75);
+	int reducedSize = (int)(Math.floor(list.length * 0.75));
 	
 	for (firstIndex = 0; firstIndex < list.length; firstIndex ++)
 	{
