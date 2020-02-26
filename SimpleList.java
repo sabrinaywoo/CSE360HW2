@@ -6,7 +6,8 @@
 **/
 import java.lang.Math.*;
 
-public class SimpleList {
+public class SimpleList
+{
 
 private int [] list;
 private int count;
@@ -165,6 +166,74 @@ public int search(int target)
 	
 	return found;
 }
+/* 
+This method appends the parameter to the end of the list and increments the count 
+If the list is full, then increase the size by 50% so there will be room
+@param the integer to be appended
+*/	
+public void append (int newInt)
+{
+	int increasedSize = (int)(Math.floor(list.length * 0.5));
+	
+	if (count == list.length)
+	{
+		//new array with increased size by 50%
+		int [] tempArray = new int [increasedSize];
+
+		//copy original list elements into new array
+		for (int copy = 0; copy < list.length; copy++)
+		{
+			tempArray[copy] = list[copy];
+		}
+		list = tempArray;
+		tempArray[list.length - 1] = newInt;
+		count ++;
+	}
+	else
+	{
+		list[list.length - 1] = newInt;
+	}
+	
+}
+	
+/* 
+This method returns the first element in the list.  If there are no elements in the list, then return -1.
+@return first list element
+*/	
+public int first ()
+{
+	int first;
+	if (count != 0)
+		first = list[0];
+	else
+		first = -1;
+	
+	return first;
+}
+	
+/* 
+This method returns the last element in the list.  If there are no elements in the list, then return -1.
+@return last list element
+*/	
+public int last ()
+{
+	int last;
+	if (count != 0)
+		last = list[list.length - 1];
+	else
+		last = -1;
+	
+	return last;
+}
+	
+/* 
+This method returns the current number of possible locations in the list.
+@return number of current elements
+*/	
+public int size ()
+{
+	return count;
+}	
 
 }
 
