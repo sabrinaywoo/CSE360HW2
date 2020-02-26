@@ -2,7 +2,7 @@
  *Name: Sabrina Woo
  *Class ID: 422
  *Assignment 2
- *Description: Simple List class can add, remove, or search an integer
+ *Description: Simple List class can add, remove, or search an integer in an array of integers
 **/
 
 public class SimpleList {
@@ -17,13 +17,19 @@ public SimpleList()
 	count = 0;
 }
 
-//returns list
+/* 
+This method returns the list
+@return the array of integers
+*/
 public int [] getList()
 {
 	return list;
 }
 
-//add a new int to array at index 0
+/* 
+This method adds a new int to array at index 0 and moves all list elements to the right
+@param a new integer to be added
+*/
 public void add (int newInt)
 {	
 	//if list is empty then add an integer		
@@ -61,7 +67,12 @@ public void add (int newInt)
 
 }
 
-//remove a specified int
+/* 
+This method removes a specified int and moves the remaining elements down.
+If the list has more than 25% empty places it decreases the size of the list.
+The list cannot be reduced to less than 1 entry.
+@param a specific integer to remove from the list
+*/
 public void remove (int target)
 {
 	//list search variables
@@ -96,10 +107,10 @@ public void remove (int target)
 	}
 	
 	//reduce array size if over 25% of list is empty
-	if (count < reducedSize)
+	if (count < reducedSize && count > 1)
 	{
 		//new array with smaller size
-		int [] tempArray = new int [reducecdSize];
+		int [] tempArray = new int [reducedSize];
 		
 		//copy original list elements into new array
 		for (int copy = 0; copy < reducedSize; copy++)
@@ -109,29 +120,40 @@ public void remove (int target)
 		list = tempArray;
 	}
 }
-
+	
+/* 
+This method returns the current count of integers in the list 
+*/
 public int count ()
 {
 	return count;
 }
-
+	
+/* 
+This method converts the array to a string and the elements are separated by a space
+*/
 public String toString()
 {
 	String finalString = "", tempString = "";
-
+	//for loop copies array and converts to String, excluding the first value
 	for(int index = 1; index < list.length; index++)
 	{
 		tempString += " " + String.valueOf(list[index]);
 	}
-	
+	//converts the first value to string and append the rest
 	finalString = String.valueOf(list[0])+ tempString;
 	return finalString;
 }
-
+	
+/* 
+This method return the location of the parameter in the list. If the parameter is not in the list, then it returns -1.
+@param the target integer to be found
+@return the index of the target integer
+*/
 public int search(int target)
 {
 	int found = -1;
-	
+	//searches for integer in the array
 	for (int index = 0; index < list.length ; index++)
 	{
 		if (list[index] == target)
